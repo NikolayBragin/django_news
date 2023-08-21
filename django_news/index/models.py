@@ -15,7 +15,7 @@ class Product(models.Model):
     product_name = models.CharField(max_length=512)
     product_category = models.ForeignKey(Category, on_delete=models.CASCADE)
     product_des = models.TextField(blank=True)
-    product_photo = models.ImageField(upload_to='media')
+    product_photo = models.ImageField()
 
     def __str__(self):
         return str(self.product_name)

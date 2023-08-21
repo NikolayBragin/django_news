@@ -3,12 +3,15 @@
 {% block title %}Статья{% endblock %}
 
 {% block content %}
+
     <h1>{{ product.product_name }}</h1>
     <hr>
-    {{ product.product_category }}<br>
+    Категория: {{ product.product_category }}<br>
     {{ product.product_des }}<br>
-    <img src="{{ product.product_photo }}" alt="{{ product.product_name }}">
-a>
+    <br>
+    <img src="/{{ product.product_photo }}" alt="{{ product.product_name }}" />
+
+
 {% endblock %}
 {% block tools %}{% endblock %}
 {% block search %}{% endblock %}

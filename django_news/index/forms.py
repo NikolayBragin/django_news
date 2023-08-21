@@ -14,13 +14,9 @@ class RegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 class ProductForm(ModelForm):
+    product_photo = forms.ImageField()
     class Meta:
         model = Product
-        fields = ['product_name', 'product_category', 'product_des']
 
-        widgets = {
-            "product_name": TextInput(attrs={'class': 'form-control', 'placeholder': 'Название статьи'}),
-            "product_category": TextInput(attrs={'class': 'form-control', 'placeholder': 'Анонс статьи'}),
-            # "product_photo": ImageField(attrs={'class': 'form-control', 'placeholder': 'Фото статьи'}),
-            "product_des": Textarea(attrs={'class': 'form-control', 'placeholder': 'Текст статьи'}),
-        }
+        fields = ['product_name', 'product_category', 'product_des', 'product_photo']
+
