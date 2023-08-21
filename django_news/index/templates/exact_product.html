@@ -10,7 +10,9 @@
     {{ product.product_des }}<br>
     <br>
     <img src="/{{ product.product_photo }}" alt="{{ product.product_name }}" />
-
+    <hr>
+    <a href="{% url 'news-delete' product.id %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'news-update' product.id %}" class="btn btn-info">Редактировать</a>
 
 {% endblock %}
 {% block tools %}{% endblock %}

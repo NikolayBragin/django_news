@@ -86,4 +86,14 @@ def create(request):
     data = {'form': form, 'error': error}
     return render(request, 'create.html', data)
 
+class NewsUpdateView(UpdateView):
+    model = Product
+    template_name = 'create.html'
+    form_class = ProductForm
+
+class NewsDeleteView(DeleteView):
+    model = Product
+    success_url = '/news_home'
+    template_name = 'news-delete.html'
+
 
