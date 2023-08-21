@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h1>Главная</h1>
+    <hr>
+    <p>Этот сайт является новостным порталом и служит ярким доказательством, что Николай Брагин успешно постигает back-end с легкими вкраплениями Front-end'а</p>
+    <p>В данном проекте реализованы:
+        <li>+++отслеживание ссылок(главная страница, инфо, просмотр статей)</li>
+        <li>реализована форма добавления новой новостной статьи</li>
+        <li>реализована возможность редактирования и удаления новостных статей</li>
+        <li>+++добавлена возможность регистрации пользователей</li>
+        <li>+++реализована система авторизации для доступа к административному интерфейсу</li>
+        <li>+++сделана модель поиска статей</li>
+        <li>+++сделана модель категории статей</li>
+        <li>добавлена возможность загрузки и отображения изображений к новостным статьям</li>
+        <li>+++добавлены свои фичи по желанию</li>
+    </p>
+{% endblock %}
+
+{% block tools %}
+    <hr>
+    Тэги:
+    {% for category in categories %}
+        <a href="category/{{ category.id }}">{{ category.category_name }}</a>
+    {% endfor %}
+    <hr>
+    Статьи:
+    {% for product in products %}
+        <a href="product/{{ product.id }}">{{ product.product_name }}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block search %}
+        <hr>
+        <h5>Найти статью по названию</h5>
+        <form action="search" method="POST">
+            {% csrf_token %}
+            <input class="find" type="text" name="search_product"><br>
+            <br>
+            <button class="search">Поиск</button>
+        </form>
+        <hr>
+{% endblock %}
+

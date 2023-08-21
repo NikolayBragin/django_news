@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}Обо мне{% endblock %}
+
+{% block content %}
+    <h1>Обо мне</h1>
+    <hr>
+    <p>Я, Брагин Николай, начинающий, но крайне одаренный back-end разработчик. С удовольствием устроюсь стажером в любую IT компанию (предпочтительно IT-park, Ташкент) для закрепления скилов и наработки бесценного опыта. Так же готов преподавать в учебных заведениях или ВУЗах (опыт преподавательской деятельности 7 лет)</p>
+{% endblock %}
+
+{% block tools %}
+    <hr>
+    Тэги:
+    {% for category in categories %}
+        <a href="category/{{ category.id }}">{{ category.category_name }}</a>
+    {% endfor %}
+    <hr>
+    Статьи:
+    {% for product in products %}
+        <a href="product/{{ product.id }}">{{ product.product_name }}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block search %}
+        <hr>
+        <h5>Найти статью по названию</h5>
+        <form action="search" method="POST">
+            {% csrf_token %}
+            <input class="find" type="text" name="search_product"><br>
+            <br>
+            <button class="search">Поиск</button>
+        </form>
+        <hr>
+{% endblock %}
